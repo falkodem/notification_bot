@@ -1,5 +1,9 @@
 FROM python:3.12-alpine
 
+RUN apk add --no-cache tzdata && \
+    cp /usr/share/zoneinfo/Europe/Moscow /etc/localtime && \
+    echo "Europe/Moscow" > /etc/timezone
+
 WORKDIR /app
 
 COPY . /app
