@@ -1,3 +1,4 @@
 1. check input safety
 2. logging
 3. different utc timezones support
+4. If its a one-time note and its time is less then now, tell the user to verify this
