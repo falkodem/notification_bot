@@ -19,7 +19,7 @@ greeting = f'''
 '''
 
 DEFAULT_BUTTONS = ReplyKeyboardMarkup(
-    [["/help", "/start"], ["Добавить заметку", "Вывести список заметок", "Удалить заметку"]],
+    [["/start"], ["Добавить заметку"], ["Вывести список заметок"], ["Удалить заметку"]],
     # one_time_keyboard=True,
     input_field_placeholder="Выберите действие",
     selective=True,
