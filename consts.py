@@ -1,6 +1,6 @@
 from telegram import ReplyKeyboardMarkup
 
-
+db_path = 'data/notifications.db'
 WAITING_FOR_MESSAGE = 1
 
 EXAMPLE = "День рождения хомяка; 15 сентября; 13:00; год"

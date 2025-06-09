@@ -1,7 +1,10 @@
 import sqlite3
 
+from consts import db_path
+
+
 def setup_database():
-    conn = sqlite3.connect("notifications.db")
+    conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS notifications (
@@ -18,7 +21,7 @@ def setup_database():
 
 
 def db_write_notification(chat_id, name, notification_datetime, periodicity):
-    conn = sqlite3.connect("notifications.db")
+    conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
 
     cursor.execute("BEGIN TRANSACTION")
@@ -36,7 +39,7 @@ def db_write_notification(chat_id, name, notification_datetime, periodicity):
 
 
 def db_update_notification(chat_id, notification_id, notification_datetime):
-    conn = sqlite3.connect("notifications.db")
+    conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
     cursor.execute(
         "UPDATE notifications SET notification_datetime = ? "
@@ -48,7 +51,7 @@ def db_update_notification(chat_id, notification_id, notification_datetime):
 
 
 def db_read_user_notifications(chat_id):
-    conn = sqlite3.connect("notifications.db")
+    conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM notifications WHERE chat_id = ?", (chat_id,))
     notifications = cursor.fetchall()
@@ -57,7 +60,7 @@ def db_read_user_notifications(chat_id):
 
 
 def db_delete_user_notification(chat_id, notification_id):
-    conn = sqlite3.connect("notifications.db")
+    conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
     cursor.execute("BEGIN TRANSACTION")
     # Fetch the notification before deleting it
@@ -75,7 +78,7 @@ def db_delete_user_notification(chat_id, notification_id):
 
 
 def db_read_all_notifications():
-    conn = sqlite3.connect("notifications.db")
+    conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM notifications")
     notifications = cursor.fetchall()
