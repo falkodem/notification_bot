@@ -5,7 +5,7 @@
 **Why?**
 - Because i always miss notification from calendar
 - Because I often use Telegram and a notification about a new message will always flash before my eyes
-- 
+
 **Key Features:**
 - Sends notifications for one-time and recurring events
 - Supports multiple delivery channels
